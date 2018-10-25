@@ -4,14 +4,9 @@ DROP FUNCTION IF EXISTS stay_productive() CASCADE;
 CREATE FUNCTION stay_productive() RETURNS trigger AS $pname$
 BEGIN 
 		IF (SELECT SUM(hours_booked) + NEW.hours_booked 
-		    FROM Bookings --,Individuals
-            WHERE week = NEW.week AND team_id = NEW.team_id ) >= 8
-            /*week = NEW.week AND team_id = NEW.team_id Individuals.rank = 'employee') >= 8
-
-            WHERE NEW.team_id IN (
-            	SELECT team_id
-            	FROM Individuals
-            	WHERE Individuals.team_id = NEW.team_id and Individuals.rank = 'employee') AND week = NEW.week) >= 8*/
+		    FROM Bookings
+                  JOIN Individuals ON Bookings.team_id = Individuals.team_id
+                WHERE rank = 'employee' AND week = NEW.week AND Bookings.team_id = NEW.team_id ) > 8
 		THEN RAISE EXCEPTION 'Employees can attend at most 8hours of meetings per week!';
 		END IF;
 		RETURN NEW;

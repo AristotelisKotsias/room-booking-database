@@ -1,3 +1,4 @@
+--No two meetings at the same time/place
 DROP FUNCTION IF EXISTS meetings_clash() CASCADE;
 
 CREATE FUNCTION meetings_clash() RETURNS TRIGGER AS $pname$
@@ -5,8 +6,7 @@ BEGIN
   IF NEW.booking_date IN (SELECT booking_date
                           FROM Bookings
                           WHERE booking_date = NEW.booking_date AND room_id = NEW.room_id AND 
-                          ((NEW.start BETWEEN start AND finish)OR(NEW.finish BETWEEN start AND finish)))
-                                                                  --   start = NEW.start AND finish = NEW.finish)                                                                 
+                          ((NEW.start BETWEEN start AND finish)OR(NEW.finish BETWEEN start AND finish)))                                                               
   THEN RAISE EXCEPTION 'Meetings clash, book another time.';
   END IF;
   RETURN NEW;

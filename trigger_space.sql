@@ -1,3 +1,4 @@
+--You cannot create room bookings with more participants than spaces in a room
 DROP FUNCTION IF EXISTS room_space() CASCADE;
 
 CREATE FUNCTION room_space() RETURNS trigger AS $pname$

@@ -32,7 +32,7 @@ CREATE TABLE Individuals (
   first_name VARCHAR(255),
   last_name VARCHAR(255),
   rank VARCHAR(255) NOT NULL,
-  team_id INT
+  team_id INT REFERENCES Teams(team_id)
 );
 
 
@@ -41,8 +41,8 @@ CREATE TABLE Bookings (
   --Invite other ppl => maybe invite the whole other team only when u are a managet. bulletpoint 1
 	booking_id SERIAL PRIMARY KEY,
   booker_id INT REFERENCES Individuals(individual_id),
-	team_id INT,
-	room_id INT,
+	team_id INT REFERENCES Teams(team_id),
+	room_id INT REFERENCES Rooms(room_id),
 	participants INT,                             --Number of people attending the meeting
   week INT,                                     --Number of week that the meeting takes place (1<=weeks<=52)
 	hours_booked INT,														  --Indicates how many hours a room has been booked

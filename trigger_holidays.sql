@@ -5,7 +5,7 @@ BEGIN
 		IF NEW.booking_date IN (SELECT date
 								FROM Holidays_weekends
 								WHERE date = NEW.booking_date)
-		THEN RAISE EXCEPTION 'Cannot book meeting on Holidays';
+		THEN RAISE EXCEPTION 'Cannot book a meeting on holidays and weekends';
 		END IF;
 		RETURN NEW;
 END;
