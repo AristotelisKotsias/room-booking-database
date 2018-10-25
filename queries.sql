@@ -1,3 +1,14 @@
+/*SELECT *
+FROM Individuals;
+
+\echo updated!?!?!
+INSERT INTO Bookings(booker_id, team_id, room_id, participants, week, hours_booked, booking_date, start, finish, invited_person_id_1,invited_person_id_2)
+VALUES(1,1,1,5,19,4,'2018-02-01','13:00:00','15:00:00', NULL, NULL);
+
+
+SELECT *
+FROM Individuals;*/
+
 
 \echo ** Q1: What is the name of the manager of team number 3 **
 SELECT first_name, last_name
@@ -30,10 +41,10 @@ GROUP BY team_name
 ORDER BY team_name;
 
 \echo ** Q3: Rank employees by most/least time spent in meetings **
-SELECT first_name, last_name, SUM(hours_booked)
+SELECT first_name, last_name, meeting_hours
 FROM Individuals
-	JOIN Bookings ON Individuals.team_id = Bookings.team_id;
---ORDER BY SUM(hours_booked) DESC
+WHERE Individuals.rank != 'external'
+ORDER BY (meeting_hours) DESC;
 
 \echo ** Q4: Book a room at a certain time for a certain group of employees **
 INSERT INTO Bookings(booker_id, team_id, room_id, participants, week, hours_booked, booking_date, start, finish, invited_person_id_1,invited_person_id_2)

@@ -48,61 +48,55 @@ INSERT INTO Holidays_weekends(date)
 VALUES('2018-12-31');
 
 
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Aristotelis', 'Kotsias', 'manager', 1);
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Nick', 'Koulis', 'employee', 1 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('John', 'Jovanni', 'employee', 1 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Vassilis', 'Korboss', 'manager', 2);
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Alexander', 'Christel','employee', 2 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Karita', 'Vera', 'employee', 2 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Yolanda', 'Young', 'manager', 3 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Michael', 'Dawson', 'employee', 3 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Jessie', 'Carrol', 'employee', 3 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Hommer', 'Green', 'manager', 4 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Lester', 'Little', 'employee', 4 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Iris', 'Sander', 'employee', 4 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Haris', 'Pilton', 'manager', 5 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Nicole', 'Anniston', 'employee', 5 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Thomas', 'More', 'employee', 5 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Ammy', 'Man', 'manager', 6 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Luke', 'Sharp', 'employee', 6 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Elen', 'Monaris', 'employee', 6 );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Tim', 'Loren', 'manager', 7);
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Riley', 'Reid', 'external', NULL );
-INSERT INTO Individuals(first_name, last_name, rank, team_id)
-VALUES('Evan', 'Scots', 'external', NULL );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Aristotelis', 'Kotsias', 'manager', 1, 0);
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Nick', 'Koulis', 'employee', 1, 0);
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('John', 'Jovanni', 'employee', 1, 0);
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Vassilis', 'Korboss', 'manager', 2, 0);
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Alexander', 'Christel','employee', 2, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Karita', 'Vera', 'employee', 2, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Yolanda', 'Young', 'manager', 3, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Michael', 'Dawson', 'employee', 3, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Jessie', 'Carrol', 'employee', 3, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Hommer', 'Green', 'manager', 4, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Lester', 'Little', 'employee', 4, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Iris', 'Sander', 'employee', 4, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Haris', 'Pilton', 'manager', 5, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Nicole', 'Anniston', 'employee', 5 , 0);
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Thomas', 'More', 'employee', 5, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Ammy', 'Man', 'manager', 6 , 0);
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Luke', 'Sharp', 'employee', 6 , 0);
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Elen', 'Monaris', 'employee', 6 , 0);
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Tim', 'Loren', 'manager', 7, 0);
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Riley', 'Reid', 'external', NULL, 0 );
+INSERT INTO Individuals(first_name, last_name, rank, team_id, meeting_hours)
+VALUES('Evan', 'Scots', 'external', NULL, 0 );
 
 
 ----
 /*INSERT INTO Bookings(booker_id, team_id, room_id, participants, week, hours_booked, booking_date, start, finish, invited_person_id_1,invited_person_id_2)
 VALUES(1,1,1,5,1,4,'2018-02-01','08:00:00','12:00:00', NULL, NULL);
 INSERT INTO Bookings(booker_id, team_id, room_id, participants, week, hours_booked, booking_date, start, finish,invited_person_id_1,invited_person_id_2)
-VALUES(5,2,2,5,1,7,'2018-02-01','14:00:00','17:00:00', NULL, NULL);
-SELECT *
-FROM Bookings;
-DELETE FROM Bookings
-WHERE booker_id = 1;
-SELECT *
-FROM Bookings;*/
+VALUES(5,2,2,5,1,7,'2018-02-01','14:00:00','17:00:00', NULL, NULL);*/
 ----
 
 INSERT INTO Bookings(booker_id, team_id, room_id, participants, week, hours_booked, booking_date, start, finish, invited_person_id_1,invited_person_id_2)

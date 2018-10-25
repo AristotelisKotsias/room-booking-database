@@ -32,6 +32,7 @@ CREATE TABLE Individuals (
   first_name VARCHAR(255),
   last_name VARCHAR(255),
   rank VARCHAR(255) NOT NULL,
+  meeting_hours INT,
   team_id INT REFERENCES Teams(team_id)
 );
 
