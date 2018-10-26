@@ -1,6 +1,5 @@
 -- External participants can also be added to room bookings (assumed that only managers can invite people)
 DROP FUNCTION IF EXISTS invite() CASCADE;
-
 CREATE FUNCTION invite() RETURNS trigger AS $pname$
 BEGIN 
 		IF NEW.booker_id NOT IN (SELECT individual_id
@@ -11,9 +10,7 @@ BEGIN
 		END IF;
 		RETURN NEW;
 END;
-
 $pname$ LANGUAGE plpgsql;
-
 CREATE TRIGGER invite
 BEFORE INSERT ON bookings 
 FOR EACH ROW 

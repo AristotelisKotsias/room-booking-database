@@ -1,15 +1,3 @@
-/*SELECT *
-FROM Individuals;
-
-\echo updated!?!?!
-INSERT INTO Bookings(booker_id, team_id, room_id, participants, week, hours_booked, booking_date, start, finish, invited_person_id_1,invited_person_id_2)
-VALUES(1,1,1,5,19,4,'2018-02-01','13:00:00','15:00:00', NULL, NULL);
-
-
-SELECT *
-FROM Individuals;*/
-
-
 \echo ** Q1: What is the name of the manager of team number 3 **
 SELECT first_name, last_name
 FROM Individuals
@@ -25,6 +13,14 @@ SELECT team_id, first_name, last_name
 FROM Individuals
 WHERE rank = 'manager'
 ORDER BY team_id;
+
+\echo ** Q4: Demo that employees can book rooms that are assigned to their team only **
+INSERT INTO Bookings(booker_id, team_id, room_id, participants, week, hours_booked, booking_date, start, finish, invited_person_id_1,invited_person_id_2)
+VALUES(2,1,2,5,17,4,'2018-09-01','08:00:00','12:00:00', NULL, NULL);
+
+\echo ** Q5: Demo of meetings clash **
+INSERT INTO Bookings(booker_id, team_id, room_id, participants, week, hours_booked, booking_date, start, finish, invited_person_id_1,invited_person_id_2)
+VALUES(3,1,1,3,51,6,'2018-01-05', '10:00:00','12:00:00', NULL, NULL);
 
 \echo ** Q1: Total usage hours for each room **
 SELECT room_name, SUM(hours_booked) AS total_hours_booked
@@ -52,7 +48,7 @@ VALUES(2,1,1,5,17,4,'2018-09-01','08:00:00','12:00:00', NULL, NULL);
 
 \echo ** Q5: Delete a room booking **
 DELETE FROM Bookings
-WHERE booking_id = 21;
+WHERE booking_id = 23;
 
 \echo ** Q6: Expense of the room bookings over a year 
 SELECT SUM(room_cost) AS annual_cost

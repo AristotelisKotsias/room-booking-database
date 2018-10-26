@@ -1,0 +1,144 @@
+1) Output of running create.sql
+
+DROP DATABASE
+CREATE DATABASE
+You are now connected to database "rb_kotsias" as user "kotsias".
+NOTICE:  table "rooms" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+NOTICE:  table "teams" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+NOTICE:  table "holidays_weekends" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+NOTICE:  table "individuals" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+NOTICE:  table "bookings" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+NOTICE:  function update_hours() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+CREATE TRIGGER
+NOTICE:  function meetings_clash() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+CREATE TRIGGER
+NOTICE:  function insert_meeting() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+CREATE TRIGGER
+NOTICE:  function room_space() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+CREATE TRIGGER
+NOTICE:  function invite() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+CREATE TRIGGER
+NOTICE:  function holidays_weekends() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+CREATE TRIGGER
+NOTICE:  function insert_booking() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+CREATE TRIGGER
+NOTICE:  function delete_meeting() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+CREATE TRIGGER
+NOTICE:  function stay_productive() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+CREATE TRIGGER
+
+
+2)Answers from running queries.sql
+
+** Q1: What is the name of the manager of team number 3 **
+ first_name | last_name 
+------------+-----------
+ Yolanda    | Young
+(1 row)
+
+** Q2: Print out the booking(s) on 2018-06-09 **
+ team_id | room_id | booking_date |  start   |  finish  
+---------+---------+--------------+----------+----------
+       4 |       4 | 2018-06-09   | 09:00:00 | 13:00:00
+(1 row)
+
+** Q3: Print the names of the managers of each team **
+ team_id | first_name  | last_name 
+---------+-------------+-----------
+       1 | Aristotelis | Kotsias
+       2 | Vassilis    | Korboss
+       3 | Yolanda     | Young
+       4 | Hommer      | Green
+       5 | Haris       | Pilton
+       6 | Ammy        | Man
+       7 | Tim         | Loren
+(7 rows)
+
+** Q4: Demo that employees can book rooms that are assigned to their team only **
+psql:queries.sql:19: ERROR:  This room cannot be booked by this person/team!
+** Q5: Demo of meetings clash **
+psql:queries.sql:23: ERROR:  Meetings clash, book another time.
+** Q1: Total usage hours for each room **
+ room_name | total_hours_booked 
+-----------+--------------------
+ Black     |                  5
+ Green     |                  3
+ Orange    |                 14
+ Pink      |                  8
+ Red       |                 21
+ Yellow    |                 11
+(6 rows)
+
+** Q2: Usage by team
+ team_name | total_hours_per_team 
+-----------+----------------------
+ Five      |                    3
+ Four      |                   11
+ One       |                   20
+ Seven     |                    1
+ Six       |                    5
+ Three     |                    8
+ Two       |                   14
+(7 rows)
+
+** Q3: Rank employees by most/least time spent in meetings **
+ first_name  | last_name | meeting_hours 
+-------------+-----------+---------------
+ John        | Jovanni   |            20
+ Nick        | Koulis    |            20
+ Aristotelis | Kotsias   |            20
+ Alexander   | Christel  |            18
+ Vassilis    | Korboss   |            18
+ Karita      | Vera      |            14
+ Hommer      | Green     |            11
+ Lester      | Little    |            11
+ Iris        | Sander    |            11
+ Yolanda     | Young     |             8
+ Michael     | Dawson    |             8
+ Jessie      | Carrol    |             8
+ Luke        | Sharp     |             5
+ Ammy        | Man       |             5
+ Elen        | Monaris   |             5
+ Haris       | Pilton    |             3
+ Thomas      | More      |             3
+ Nicole      | Anniston  |             3
+ Tim         | Loren     |             1
+(19 rows)
+
+** Q4: Book a room at a certain time for a certain group of employees **
+INSERT 0 1
+** Q5: Delete a room booking **
+DELETE 1
+** Q6: Expense of the room bookings over a year
+ annual_cost 
+-------------
+         183
+(1 row)
